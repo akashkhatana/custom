@@ -1,0 +1,148 @@
+{
+    "step-types": {
+       "script-module-step": [
+            {
+                "@type-id":"custom.OrderReturnAndCancelReportLatam",
+                "@supports-parallel-execution":"true",
+                "@supports-site-context":"true",
+                "@supports-organization-context":"false",
+                "description":"send order return and cancellation report on daily basis",
+                "module":"app_latam_layer_v2/cartridge/scripts/jobs/OrderReturnAndCancelReportJob.js",
+                "function":"execute",
+                "timeout-in-seconds":"900",
+                "parameters": {
+                    "parameter": [
+                        {
+                            "@name":"Brand",
+                            "@type":"string",
+                            "@required":false,
+                            "@trim":true,
+                            "description":"Brand name"
+                        },
+                        {
+                            "@name":"daysToLookUp",
+                            "@type":"string",
+                            "@required":false,
+                            "@trim":true,
+                            "description":"Include only orders placed"
+                        },
+                        {
+                            "@name":"emailTo",
+                            "@type":"string",
+                            "@required":true,
+                            "@trim":true,
+                            "description":"Comma-separated email list for recipients"
+                        },
+                        {
+                            "@name": "emailFrom",
+                            "@type": "string",
+                            "@required": true,
+                            "@trim": true,
+                            "description": "Notification Email From"
+                        },
+                        {
+                            "@name": "emailCc",
+                            "@type": "string",
+                            "@required": false,
+                            "@trim": true,
+                            "description": "Notification Email CC"
+                        },
+                        {
+                            "@name": "disableStep",
+                            "@type": "boolean",
+                            "@required": false,
+                            "description": "Disable Step"
+                        }
+                    ]
+                },
+                "status-codes":{
+                    "status": [
+                        {
+                            "@code": "ERROR",
+                            "description": "Used when the step failed with an error."
+                        },
+                        {
+                            "@code": "OK",
+                            "description": "Used when the step finished successfully."
+                        },
+                        {
+                            "@code": "WARN",
+                            "description": "Used when small, but acceptable problems occurred."
+                        }
+                    ]
+                }
+            },
+            {
+                "@type-id":"custom.SAPOrderFailureStatusReportLatam",
+                "@supports-parallel-execution":"true",
+                "@supports-site-context":"true",
+                "@supports-organization-context":"false",
+                "description":"send failure orders status report on daily basis",
+                "module":"app_latam_layer_v2/cartridge/scripts/jobs/SalesOrderStatusReport.js",
+                "function":"execute",
+                "timeout-in-seconds":"900",
+                "parameters": {
+                    "parameter": [
+                        {
+                            "@name":"Brand",
+                            "@type":"string",
+                            "@required":false,
+                            "@trim":true,
+                            "description":"Brand name"
+                        },
+                        {
+                            "@name":"daysToLookUp",
+                            "@type":"string",
+                            "@required":false,
+                            "@trim":true,
+                            "description":"Includes only orders got failed status from sap - add '0' for current day report"
+                        },
+                        {
+                            "@name":"emailTo",
+                            "@type":"string",
+                            "@required":true,
+                            "@trim":true,
+                            "description":"Comma-separated email list for recipients"
+                        },
+                        {
+                            "@name": "emailFrom",
+                            "@type": "string",
+                            "@required": true,
+                            "@trim": true,
+                            "description": "Notification Email From"
+                        },
+                        {
+                            "@name": "emailCc",
+                            "@type": "string",
+                            "@required": false,
+                            "@trim": true,
+                            "description": "Notification Email CC"
+                        },
+                        {
+                            "@name":"queryString",
+                            "@type":"string",
+                            "@required":"false",
+                            "description":"query to search orders"
+                          }
+                    ]
+                },
+                "status-codes":{
+                    "status": [
+                        {
+                            "@code": "ERROR",
+                            "description": "Used when the step failed with an error."
+                        },
+                        {
+                            "@code": "OK",
+                            "description": "Used when the step finished successfully."
+                        },
+                        {
+                            "@code": "WARN",
+                            "description": "Used when small, but acceptable problems occurred."
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

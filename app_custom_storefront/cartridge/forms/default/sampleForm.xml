@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<form xmlns="http://www.demandware.com/xml/form/2008-04-19" secure="false">
+
+
+
+    <field formid="productID" type="string" />
+
+    <field formid="firstName"
+           type="string"
+           label="First Name"
+           mandatory="true" />
+
+    <!-- Text Field: Last Name (Mandatory) -->
+    <field formid="lastName"
+           type="string"
+           label="Last Name"
+           mandatory="true" />
+
+    <!-- Email Field (Mandatory) with Regular Expression for Email Validation -->
+    <field formid="Email"
+           type="string"
+           label="Email"
+           mandatory="true"
+           regexp="^[\w.%+-]+@[\w.-]+\.[\w]{2,6}$" />
+
+    <!-- Text Field: Shipping Address Line 1 (Mandatory) -->
+    <field formid="addressline1"
+           type="string"
+           label="Address Line 1"
+           mandatory="true" />
+
+    <!-- Text Field: Shipping Address Line 2 -->
+    <field formid="addressline2"
+           type="string"
+           label="Address Line 2" />
+
+    <!-- Text Field: City (Mandatory) -->
+    <field formid="city"
+           type="string"
+           label="City"
+           mandatory="true" />
+
+    <!-- Text Field: State (Mandatory) -->
+    <field formid="state"
+           type="string"
+           label="State"
+           mandatory="true" />
+
+    <!-- Text Field: Postal Code (Mandatory) -->
+    <field formid="postalCode"
+           type="string"
+           label="Postal Code"
+           mandatory="true" />
+
+    <!-- Text Field: Country (Mandatory) -->
+    <field formid="country"
+           type="string"
+           label="Country"
+           mandatory="true" />
+
+</form>

@@ -1,0 +1,98 @@
+<isdecorate template="common/layout/page">
+
+    <style>
+        /* CSS styles for the form */
+        .container.sample-form-landing-page {
+            margin-top: 20px;
+        }
+
+        .form-group.required label::after {
+            content: "*";
+            color: red;
+        }
+
+        .invalid-feedback {
+            color: red;
+        }
+    </style>
+
+    <div>
+        <h1 class="page-title">${Resource.msg('title.sample.request.page', 'sampleForm', null)}</h1>
+    </div>
+
+    <div>
+        <h1>${pdict.name}</h1>
+        <img src="${pdict.image}" alt="${pdict.name}">
+        <h3>Description</h3>
+        <p>${pdict.description}</p>
+    </div>
+
+    <div class="container sample-form-landing-page">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form action="${pdict.formactionURL}" method="POST" class="sampleForm-form" name="sampleForm">
+                    <input type="hidden" name="productID" value="${Product.ID}">
+
+                    <!-- Contact Us Email -->
+                    <div class="row sampleForm-email">
+                        <div class="col">
+                            <div class="form-group required">
+
+                                <label class="form-control-label" for="contact-first-name">
+                                    ${Resource.msg('label.input.sampleForm-first-name', 'sampleForm', null)}
+                                </label>
+                                <input type="text" required class="form-control required" aria-describedby="form-contact-first-name-error" id="contact-first-name" name="firstName">
+                            </div>
+                        </div>
+                            <div class="form-group required">
+                                <label class="form-control-label" for="contact-last-name">
+                                    ${Resource.msg('label.input.sampleForm-last-name', 'sampleForm', null)}
+                                </label>
+                                <input type="text" required class="form-control required" aria-describedby="form-contact-last-name-error" id="contact-last-name" name="lastName">
+                                <label class="form-control-label" for="contact-email">
+                                    ${Resource.msg('label.input.sampleForm-email', 'sampleForm', null)}
+                                </label>
+                                <input type="email" required class="form-control required" aria-describedby="form-contact-email-error" id="contact-email" name="Email">
+                                <div class="invalid-feedback" id="form-contact-email-error"></div>
+                            </div>
+                    </div>
+
+                    <!-- Shipping Address Fields -->
+                    <div class="form-group">
+                        <label for="addressLine1">Shipping Address Line 1:</label>
+                        <input type="text" id="addressLine1" name="addressLine1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="addressLine2">Shipping Address Line 2:</label>
+                        <input type="text" id="addressLine2" name="addressLine2">
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City:</label>
+                        <input type="text" id="city" name="city" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="state">State:</label>
+                        <input type="text" id="state" name="state" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="postalCode">Postal Code:</label>
+                        <input type="text" id="postalCode" name="postalCode" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="country">Country:</label>
+                        <input type="text" id="country" name="country" required>
+                    </div>
+
+                    <label for="terms">Terms and Conditions:</label>
+                    <input type="checkbox" id="terms" name="terms" required checked /><br>
+
+                    <!-- Submit Button -->
+                    <button class="btn btn-primary btn-block" type="submit" name="submit" value="submit">
+                        ${Resource.msg('label.input.sampleForm-submit', 'sampleForm', null)}
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</isdecorate>

@@ -1,0 +1,37 @@
+.description-and-detail {
+
+    margin-top: 2em;
+
+
+
+
+    .description {
+
+
+
+
+        @include media-breakpoint-up(sm) {
+
+            margin-bottom: 2em;
+
+        }
+
+    }
+
+
+
+
+    .content {
+
+
+
+
+        @include media-breakpoint-only(xs) {
+
+            margin-top: 1em;
+
+        }
+
+    }
+
+}
